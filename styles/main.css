@@ -5,6 +5,7 @@
     box-sizing: border-box; /* Utiliser cette propriété sur tous les éléments pour éviter les problèmes de padding/margin */
 }
 
+
 html, body {
     height: 100%;
     width: 100%; /* S'assurer que body et html occupent toute la largeur et la hauteur de la page */

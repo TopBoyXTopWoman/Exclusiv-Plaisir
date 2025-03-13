@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+    
 
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
@@ -21,4 +22,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Changer d'image toutes les 3 secondes
     setInterval(nextSlide, 3000);
+    // Définir la fonction toggleMenu
+function toggleMenu() {
+    const menu = document.getElementById("menu");
+    menu.classList.toggle("visible");
+}
+
+// Attacher l'événement de clic au bouton du menu
+const menuButton = document.getElementById("menu-button");
+
+if (menuButton) {
+    menuButton.addEventListener("click", toggleMenu);
+}
+
 });

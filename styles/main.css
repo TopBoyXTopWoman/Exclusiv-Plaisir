@@ -10,6 +10,7 @@ html, body {
     width: 100%; /* S'assurer que body et html occupent toute la largeur et la hauteur de la page */
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
 }
 
 /* Appliquer une marge de 20px à tout sauf le header */
@@ -18,21 +19,12 @@ body {
     padding: 0;
 }
 
-/* Exclure le header de la marge */
-#header-placeholder {
-    margin: 0;
-}
-
-/* Ajouter une marge sous le header */
-#text-under-header {
-    margin-top: 40px; /* Ajuste la marge si besoin */
-}
-
 /* Sections avec texte */
 .centered-section {
     text-align: center;
     margin: 50px auto;
-    padding: 0 20px;  /* Réduit l'espace horizontal pour plus de flexibilité */
+    padding: 0 15px;  /* Réduit l'espace horizontal pour plus de flexibilité */
+    width: 100%;
 }
 
 /* Titre de la page */
@@ -56,13 +48,9 @@ body {
 /* Image et texte dans la section */
 .centered-section img {
     display: block;
+    max-width: 100%; /* Garantit que l'image ne dépasse pas la largeur */
+    height: auto;
     margin: 0 auto;
-}
-
-.centered-section .text-with-image img {
-    width: auto;
-    max-width: 100%; /* Empêche l'image de dépasser */
-    margin-bottom: 10px; /* Ajoute un petit espace entre l'image et le texte */
 }
 
 .centered-section .text-with-image p {
@@ -75,18 +63,6 @@ body {
     font-weight: 400;
 }
 
-/* Texte sous le header */
-.centered-text {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-family: 'Verdana', sans-serif;
-    font-size: 1.2em;
-    color: #ffffff;
-    line-height: 1.6;
-    font-weight: 400;
-}
-
 /* Section galerie photo */
 .photo-gallery-container {
     background-color: black;
@@ -94,11 +70,8 @@ body {
     color: white;
     text-align: center;
     width: 100%;
-    position: relative;
-    margin: 0;
 }
 
-/* Titre de la galerie */
 .photo-gallery-title {
     font-size: 2.5em;
     font-family: 'Helvetica', sans-serif;
@@ -108,7 +81,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Sous-titre de la galerie */
 .photo-gallery-subtitle {
     font-size: 1.5em;
     font-family: 'Georgia', serif;
@@ -120,19 +92,19 @@ body {
 /* Galerie photo */
 .photo-gallery {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center; /* Aligne les éléments au centre */
+    gap: 15px;
 }
 
-.photo-row {
+.photo-gallery .photo-row {
     display: flex;
     gap: 15px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
     justify-content: center;
-    flex-wrap: wrap; /* Permet aux images de s'ajuster sur les petits écrans */
 }
 
-.photo-row img {
+.photo-gallery img {
     width: 100%;
     max-width: 200px;
     height: auto;
@@ -140,19 +112,19 @@ body {
     transition: transform 0.3s ease;
 }
 
-.photo-row img:hover {
+.photo-gallery img:hover {
     transform: scale(1.05);
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
-    .photo-row img {
+    .photo-gallery img {
         max-width: 45%; /* Redimensionne les images sur les petits écrans */
     }
 }
 
 @media (max-width: 480px) {
-    .photo-row img {
+    .photo-gallery img {
         max-width: 90%; /* Encore plus petite sur les très petits écrans */
     }
 }

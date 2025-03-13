@@ -65,38 +65,10 @@
                 <h3 class="info-platform-title">Une plateforme conviviale qui facilite les rencontres autour du libertinage</h3>
                 <p class="info-platform-text">La plateforme Place Libertine est accessible depuis tous les appareils, aussi bien ordinateurs que smartphones. Elle propose de nombreuses opportunités pour réaliser des rencontres libertines. Que vous soyez très timide ou à l’inverse très extraverti, il y en a pour tous les goûts. Vous pouvez apprendre à faire connaissance à votre rythme via une messagerie instantanée ou bien à contrario mettre tout de suite les pieds dans le plat par live webcam.</p>
             </div>
-            
-            
         </div>
     </div>
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let slides = document.querySelectorAll(".slide");
-            let currentSlide = 0;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.remove("active");
-                    if (i === index) {
-                        slide.classList.add("active");
-                    }
-                });
-            }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Afficher la première image au chargement
-            showSlide(currentSlide);
-
-            // Changer d'image toutes les 3 secondes
-            setInterval(nextSlide, 3000);
-        });
-    </script>
+    <!-- Inclure le fichier JavaScript externe -->
+    <script src="scripts/main.js"></script>
 </body>
 </html>
-

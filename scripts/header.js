@@ -1,11 +1,13 @@
-function toggleMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    navMenu.classList.toggle('active');
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
-    if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMenu);
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function () {
+            console.log("Menu Toggle Clicked!");
+
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active'); // Animation du menu hamburger
+        });
     }
 });

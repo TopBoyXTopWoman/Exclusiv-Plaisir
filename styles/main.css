@@ -1,5 +1,5 @@
 /* Réinitialisation des marges et paddings */
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Utiliser cette propriété sur tous les éléments pour éviter les problèmes de padding/margin */
@@ -32,7 +32,7 @@ body {
 .centered-section {
     text-align: center;
     margin: 50px auto;
-    padding: 0 50px;  /* Ajoute un peu d'espace horizontal autour du texte */
+    padding: 0 20px;  /* Réduit l'espace horizontal pour plus de flexibilité */
 }
 
 /* Titre de la page */
@@ -90,14 +90,12 @@ body {
 /* Section galerie photo */
 .photo-gallery-container {
     background-color: black;
-    padding: 50px 0;
+    padding: 50px 20px; /* Réduit le padding horizontal pour une meilleure réactivité */
     color: white;
     text-align: center;
     width: 100%;
     position: relative;
-    margin: 0; /* Enlève les marges du conteneur */
-    padding-left: 20px;
-    padding-right: 20px;
+    margin: 0;
 }
 
 /* Titre de la galerie */
@@ -131,6 +129,7 @@ body {
     gap: 15px;
     margin-bottom: 20px;
     justify-content: center;
+    flex-wrap: wrap; /* Permet aux images de s'ajuster sur les petits écrans */
 }
 
 .photo-row img {
@@ -208,5 +207,26 @@ body {
     }
     to {
         transform: translateX(-50%);
+    }
+}
+
+/* Mobile-friendly sliders */
+@media (max-width: 768px) {
+    .slider {
+        width: 90%; /* Adapte la taille du slider */
+    }
+
+    .slides img {
+        width: 100%; /* Adapte la taille des images */
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        width: 100%;
+    }
+
+    .slides img {
+        width: 100%;
     }
 }

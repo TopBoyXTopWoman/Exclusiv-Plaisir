@@ -1,5 +1,5 @@
 /* Réinitialisation des marges et paddings */
-* {
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Utiliser cette propriété sur tous les éléments pour éviter les problèmes de padding/margin */

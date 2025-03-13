@@ -8,33 +8,25 @@
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <h1>Exclusiv-Plaisir</h1>
-        <div class="menu-toggle" id="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#services">Services</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!-- Include header.html content here -->
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+    </script>
 
-    <!-- Main Content -->
     <div id="text-under-header">
         <div class="centered-section">
             <h1>Place Libertine</h1>
-            <h2>Goutez aux plaisirs des rencontres libertines</h2>
+            <h2>goutez aux plaisirs des rencontres libertines</h2>
             <div class="centered-section">
                 <div class="text-with-image">
                     <img src="images/img3.png" alt="Le site libertin incontournable">
                     <p>Depuis plus de 15 ans, leader des rencontres pour adultes libérés, la référence dans le monde du libertinage en France.</p>
+                    <p></p>
                     <div class="slider">
                         <div class="slides">
                             <img src="images/img1.jpg" alt="Image 1">
@@ -47,10 +39,9 @@
                 </div>
             </div>
         </div>
-
         <p class="centered-text">Accédez à des milliers d’annonces libertines avec photos et vidéos, novices ou expérimentés, rencontrez une femme libertine, un couple échangiste, mélangiste, BDSM, ou une rencontre libertine avec une femme bi pour un trio inoubliable ! Soyez certain de trouver des libertins proches de chez vous, via la recherche géolocalisée.</p>
 
-        <!-- Photo Gallery -->
+        <!-- New section with black background and centered content -->
         <div class="photo-gallery-container">
             <h4 class="photo-gallery-title">Site de rencontres libertines en tout genre</h4>
             <p class="photo-gallery-subtitle">Rejoignez la plus grande communauté francophone. Nos membres sont adeptes de tous les plaisirs du libertinage : du voyeurisme, en passant par le cote-à-cotisme jusqu’au mélangisme et orgies les plus folles. Rejoignez Place Libertine et explorez tous vos fantasmes en découvrant de nombreuses pratiques.</p>
@@ -59,34 +50,38 @@
                     <img src="images/img1.jpg" alt="Photo 1">
                     <img src="images/img1.jpg" alt="Photo 2">
                     <img src="images/img1.jpg" alt="Photo 3">
+                    <img src="images/img1.jpg" alt="Photo 4">
+                    <img src="images/img1.jpg" alt="Photo 5">
+                </div>
+                <div class="photo-row">
+                    <img src="images/img1.jpg" alt="Photo 6">
+                    <img src="images/img1.jpg" alt="Photo 7">
+                    <img src="images/img1.jpg" alt="Photo 8">
+                    <img src="images/img1.jpg" alt="Photo 9">
+                    <img src="images/img1.jpg" alt="Photo 10">
                 </div>
             </div>
-        </div>
-
-        <!-- Info Platform -->
-        <div class="info-platform">
-            <h3 class="info-platform-title">Une plateforme conviviale qui facilite les rencontres autour du libertinage</h3>
-            <p class="info-platform-text">La plateforme Place Libertine est accessible depuis tous les appareils, aussi bien ordinateurs que smartphones. Elle propose de nombreuses opportunités pour réaliser des rencontres libertines. Que vous soyez très timide ou à l’inverse très extraverti, il y en a pour tous les goûts. Vous pouvez apprendre à faire connaissance à votre rythme via une messagerie instantanée ou bien à contrario mettre tout de suite les pieds dans le plat par live webcam.</p>
+            <div class="info-platform">
+                <h3 class="info-platform-title">Une plateforme conviviale qui facilite les rencontres autour du libertinage</h3>
+                <p class="info-platform-text">La plateforme Place Libertine est accessible depuis tous les appareils, aussi bien ordinateurs que smartphones. Elle propose de nombreuses opportunités pour réaliser des rencontres libertines. Que vous soyez très timide ou à l’inverse très extraverti, il y en a pour tous les goûts. Vous pouvez apprendre à faire connaissance à votre rythme via une messagerie instantanée ou bien à contrario mettre tout de suite les pieds dans le plat par live webcam.</p>
+            </div>
+            
+            
         </div>
     </div>
 
+
     <script>
-        // JavaScript to toggle the mobile menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const navMenu = document.getElementById('nav-menu');
-
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Slider Functionality
         document.addEventListener("DOMContentLoaded", function () {
-            let slides = document.querySelectorAll(".slider .slides img");
+            let slides = document.querySelectorAll(".slide");
             let currentSlide = 0;
 
             function showSlide(index) {
                 slides.forEach((slide, i) => {
-                    slide.style.display = (i === index) ? 'block' : 'none';
+                    slide.classList.remove("active");
+                    if (i === index) {
+                        slide.classList.add("active");
+                    }
                 });
             }
 
@@ -95,10 +90,13 @@
                 showSlide(currentSlide);
             }
 
-            showSlide(currentSlide); // Show the first slide
+            // Afficher la première image au chargement
+            showSlide(currentSlide);
 
-            setInterval(nextSlide, 3000); // Change slide every 3 seconds
+            // Changer d'image toutes les 3 secondes
+            setInterval(nextSlide, 3000);
         });
     </script>
 </body>
 </html>
+

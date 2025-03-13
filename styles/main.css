@@ -10,27 +10,26 @@ html, body {
     width: 100%; /* S'assurer que body et html occupent toute la largeur et la hauteur de la page */
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* Empêche le débordement horizontal */
 }
 
 /* Appliquer une marge de 20px à tout sauf le header */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #2f0028;
-    color: white;
 }
 
 /* Sections avec texte */
 .centered-section {
     text-align: center;
     margin: 50px auto;
-    padding: 0 50px;  /* Ajoute un peu d'espace horizontal autour du texte */
+    padding: 0 15px;  /* Réduit l'espace horizontal pour plus de flexibilité */
+    width: 100%;
 }
 
 /* Titre de la page */
 .centered-section h1 {
-    font-size: 3rem; /* Utilisation de rem pour la taille responsive */
+    font-size: 2.5em;
     font-family: 'Arial', sans-serif;
     color: #ffffff;
     font-weight: bold;
@@ -40,40 +39,41 @@ body {
 /* Sous-titre */
 .centered-section h2 {
     color: pink;
-    font-size: 2rem;
+    font-size: 1.8em;
     font-family: 'Georgia', serif;
     font-style: italic;
     margin-bottom: 30px;
 }
 
-/* Texte sous le header */
-.centered-text {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+/* Image et texte dans la section */
+.centered-section img {
+    display: block;
+    max-width: 100%; /* Garantit que l'image ne dépasse pas la largeur */
+    height: auto;
+    margin: 0 auto;
+}
+
+.centered-section .text-with-image p {
     font-family: 'Verdana', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: #ffffff;
     line-height: 1.6;
+    margin-top: 15px;
+    text-align: center;
     font-weight: 400;
 }
 
 /* Section galerie photo */
 .photo-gallery-container {
     background-color: black;
-    padding: 50px 0;
+    padding: 50px 20px; /* Réduit le padding horizontal pour une meilleure réactivité */
     color: white;
     text-align: center;
     width: 100%;
-    position: relative;
-    margin: 0; /* Enlève les marges du conteneur */
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
-/* Titre de la galerie */
 .photo-gallery-title {
-    font-size: 2.5rem;
+    font-size: 2.5em;
     font-family: 'Helvetica', sans-serif;
     font-weight: bold;
     color: #fff;
@@ -81,16 +81,100 @@ body {
     text-transform: uppercase;
 }
 
-/* Sous-titre de la galerie */
 .photo-gallery-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.5em;
     font-family: 'Georgia', serif;
     font-style: italic;
     color: #ddd;
     margin-bottom: 40px;
 }
 
-/* Info Platform Section */
+/* Galerie photo */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Aligne les éléments au centre */
+    gap: 15px;
+}
+
+.photo-gallery .photo-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-gallery img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.photo-gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    /* Images de la galerie */
+    .photo-gallery img {
+        max-width: 45%; /* Redimensionne les images sur les petits écrans */
+    }
+
+    /* Titre de la galerie */
+    .photo-gallery-title {
+        font-size: 2em;
+    }
+
+    /* Sous-titre de la galerie */
+    .photo-gallery-subtitle {
+        font-size: 1.3em;
+    }
+
+    /* Texte de la plateforme */
+    .info-platform-text {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Images de la galerie */
+    .photo-gallery img {
+        max-width: 90%; /* Encore plus petite sur les très petits écrans */
+    }
+
+    /* Titre de la page */
+    .centered-section h1 {
+        font-size: 1.8em;
+    }
+
+    /* Sous-titre */
+    .centered-section h2 {
+        font-size: 1.4em;
+    }
+
+    /* Texte dans la section info plateforme */
+    .info-platform-title {
+        font-size: 1.6em;
+    }
+
+    .info-platform-text {
+        font-size: 1em;
+    }
+
+    /* Slider */
+    .slider {
+        width: 100%;
+    }
+
+    .slides img {
+        width: 100%;
+    }
+}
+
+/* Section info plateforme */
 .info-platform {
     text-align: center;
     margin-top: 40px;
@@ -99,7 +183,7 @@ body {
 }
 
 .info-platform-title {
-    font-size: 2rem;
+    font-size: 1.8em;
     font-weight: bold;
     color: #ffffff;
     margin-bottom: 20px;
@@ -107,99 +191,59 @@ body {
 
 .info-platform-text {
     font-family: 'Verdana', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     color: #ffffff;
     line-height: 1.6;
     font-weight: 400;
 }
 
-/* Responsive font sizes */
-@media (max-width: 1024px) {
-    .centered-section h1 {
-        font-size: 2.5rem; /* Ajuste pour les tablettes */
-    }
+/* Slider */
+.slider {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
 
-    .centered-section h2 {
-        font-size: 1.6rem; /* Ajuste pour les tablettes */
-    }
+.slides {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    animation: slideLoop 10s linear infinite;
+}
 
-    .centered-text {
-        font-size: 1.1rem; /* Ajuste pour les tablettes */
-    }
+.slides img {
+    width: 250px;
+    height: auto;
+    border-radius: 5px;
+}
 
-    .photo-gallery-title {
-        font-size: 2rem; /* Ajuste pour les tablettes */
+@keyframes slideLoop {
+    from {
+        transform: translateX(0);
     }
-
-    .photo-gallery-subtitle {
-        font-size: 1.5rem; /* Ajuste pour les tablettes */
-    }
-
-    .info-platform-title {
-        font-size: 1.8rem; /* Ajuste pour les tablettes */
-    }
-
-    .info-platform-text {
-        font-size: 1.1rem; /* Ajuste pour les tablettes */
+    to {
+        transform: translateX(-50%);
     }
 }
 
+/* Mobile-friendly sliders */
 @media (max-width: 768px) {
-    .centered-section h1 {
-        font-size: 2rem; /* Ajuste pour les petits écrans */
+    .slider {
+        width: 90%; /* Adapte la taille du slider */
     }
 
-    .centered-section h2 {
-        font-size: 1.4rem; /* Ajuste pour les petits écrans */
-    }
-
-    .centered-text {
-        font-size: 1rem; /* Ajuste pour les petits écrans */
-    }
-
-    .photo-gallery-title {
-        font-size: 1.8rem; /* Ajuste pour les petits écrans */
-    }
-
-    .photo-gallery-subtitle {
-        font-size: 1.4rem; /* Ajuste pour les petits écrans */
-    }
-
-    .info-platform-title {
-        font-size: 1.6rem; /* Ajuste pour les petits écrans */
-    }
-
-    .info-platform-text {
-        font-size: 1rem; /* Ajuste pour les petits écrans */
+    .slides img {
+        width: 100%; /* Adapte la taille des images */
     }
 }
 
 @media (max-width: 480px) {
-    .centered-section h1 {
-        font-size: 1.8rem; /* Ajuste pour les très petits écrans */
+    .slider {
+        width: 100%;
     }
 
-    .centered-section h2 {
-        font-size: 1.2rem; /* Ajuste pour les très petits écrans */
-    }
-
-    .centered-text {
-        font-size: 0.9rem; /* Ajuste pour les très petits écrans */
-    }
-
-    .photo-gallery-title {
-        font-size: 1.6rem; /* Ajuste pour les très petits écrans */
-    }
-
-    .photo-gallery-subtitle {
-        font-size: 1.2rem; /* Ajuste pour les très petits écrans */
-    }
-
-    .info-platform-title {
-        font-size: 1.4rem; /* Ajuste pour les très petits écrans */
-    }
-
-    .info-platform-text {
-        font-size: 0.9rem; /* Ajuste pour les très petits écrans */
+    .slides img {
+        width: 100%;
     }
 }

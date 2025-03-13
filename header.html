@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusiv-Plaisir</title>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="styles/header.css">
+</head>
+<body>
+    <header>
+        <h1>Exclusiv-Plaisir</h1>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#lieux">Lieux</a></li>
+                <li><a href="#rencontres">Rencontres</a></li>
+                <li><a href="#pratiques">Pratiques</a></li>
+                <li><a href="#Blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

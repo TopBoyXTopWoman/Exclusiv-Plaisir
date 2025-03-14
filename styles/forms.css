@@ -1,6 +1,6 @@
 /* Style de la modal */
 .modal {
-    display: none; /* Masquée par défaut */
+    display: flex; /* Changer de "none" à "flex" pour que l'élément prenne en charge le centrage */
     position: fixed;
     z-index: 1; /* Assure que la modal est au-dessus de tout le contenu */
     left: 0;
@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 .modal-content {
     background-color: #2f0028;

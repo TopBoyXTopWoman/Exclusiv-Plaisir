@@ -1,34 +1,85 @@
-<link rel="stylesheet" href="../styles/forms.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de l'âge et Formulaire</title>
 
-<form action="https://formspree.io/f/moveqgep" method="POST">
-    <label for="nom">Nom:</label>
-    <input type="text" id="nom" name="nom" required><br><br>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="/styles/forms.css">
 
-    <label for="prenom">Prénom:</label>
-    <input type="text" id="prenom" name="prenom" required><br><br>
+</head>
+<body>
 
-    <label for="age">Âge:</label>
-    <input type="number" id="age" name="age" required><br><br>
+    <!-- Modal de vérification d'âge -->
+    <div id="ageModal" class="modal">
+        <div class="modal-content">
+            <h2>Site interdit aux moins de 18 ans</h2>
+            <p>Veuillez confirmer que vous avez 18 ans ou plus pour accéder au site.</p>
+            <button id="yesBtn">Oui, j'ai 18 ans</button>
+            <button id="noBtn">Non, je n'ai pas 18 ans</button>
+        </div>
+    </div>
 
-    <label for="sexe">Sexe:</label>
-    <input type="radio" id="homme" name="sexe" value="Homme" required>
-    <label for="homme">Homme</label>
-    <input type="radio" id="femme" name="sexe" value="Femme" required>
-    <label for="femme">Femme</label><br><br>
+    <!-- Formulaire -->
+    <form action="https://formspree.io/f/moveqgep" method="POST">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br><br>
 
-    <label for="role">Rôle:</label>
-    <input type="radio" id="dominant" name="role" value="Dominant" required>
-    <label for="dominant">Dominant</label>
-    <input type="radio" id="domine" name="role" value="Dominé" required>
-    <label for="domine">Dominé</label><br><br>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required><br><br>
 
-    <label for="orientation">Orientation sexuelle:</label>
-    <select id="orientation" name="orientation" required>
-        <option value="Hétérosexuel">Hétérosexuel</option>
-        <option value="Homosexuel">Homosexuel</option>
-        <option value="Bisexuel">Bisexuel</option>
-        <option value="Autre">Autre</option>
-    </select><br><br>
+        <label for="age">Âge:</label>
+        <input type="number" id="age" name="age" required><br><br>
 
-    <input type="submit" value="Soumettre">
-</form>
+        <label for="sexe">Sexe:</label>
+        <input type="radio" id="homme" name="sexe" value="Homme" required>
+        <label for="homme">Homme</label>
+        <input type="radio" id="femme" name="sexe" value="Femme" required>
+        <label for="femme">Femme</label><br><br>
+
+        <label for="role">Rôle:</label>
+        <input type="radio" id="dominant" name="role" value="Dominant" required>
+        <label for="dominant">Dominant</label>
+        <input type="radio" id="domine" name="role" value="Dominé" required>
+        <label for="domine">Dominé</label><br><br>
+
+        <label for="orientation">Orientation sexuelle:</label>
+        <select id="orientation" name="orientation" required>
+            <option value="Hétérosexuel">Hétérosexuel</option>
+            <option value="Homosexuel">Homosexuel</option>
+            <option value="Bisexuel">Bisexuel</option>
+            <option value="Autre">Autre</option>
+        </select><br><br>
+
+        <!-- Nouvelle question sur la localisation -->
+        <label for="pays">Pays de résidence:</label>
+        <input type="text" id="pays" name="pays" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <input type="submit" value="Soumettre">
+    </form>
+
+    <script>
+        // Afficher la modal au chargement de la page
+        window.onload = function() {
+            document.getElementById('ageModal').style.display = 'flex';
+        };
+
+        // Si l'utilisateur clique sur "Oui, j'ai 18 ans", afficher le contenu de la page
+        document.getElementById('yesBtn').onclick = function() {
+            document.getElementById('ageModal').style.display = 'none';
+            document.querySelector('form').style.display = 'block'; // Afficher le formulaire
+        };
+
+        // Si l'utilisateur clique sur "Non, je n'ai pas 18 ans", rediriger ou masquer le contenu
+        document.getElementById('noBtn').onclick = function() {
+            window.location.href = "https://www.youtube.com/watch?v=fMwvoLpxI14"; // Redirection vers un autre site, ici Google
+            // Ou, pour simplement masquer le formulaire:
+            // document.querySelector('form').style.display = 'none';
+        };
+    </script>
+</body>
+</html>

@@ -1,6 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-        <link rel="stylesheet" href="../styles/forms.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+    <link rel="stylesheet" href="../styles/forms.css">
 </head>
+<body>
+
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupérer les données du formulaire
@@ -36,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sauvegarder les données dans le fichier JSON
     file_put_contents($file, json_encode($jsonArray, JSON_PRETTY_PRINT));
 
-    echo "Les données ont été enregistrées avec succès.";
+    echo "<p class='success-message'>Les données ont été enregistrées avec succès.</p>";
 }
 ?>
 
@@ -84,3 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <input type="submit" value="Soumettre">
 </form>
+
+</body>
+</html>

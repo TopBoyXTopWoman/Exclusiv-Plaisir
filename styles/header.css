@@ -114,10 +114,11 @@ header nav ul li a:hover {
 
     #nav-menu {
         display: none;
-        flex-direction: column;
     }
-
+    
+    /* Quand il est actif, il devient visible */
     #nav-menu.active {
         display: flex;
     }
+    
 }

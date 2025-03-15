@@ -1,59 +1,58 @@
-/* Style de la modal */
-.modal {
-    display: flex; /* Changer de "none" à "flex" pour que l'élément prenne en charge le centrage */
-    position: fixed;
-    z-index: 1; /* Assure que la modal est au-dessus de tout le contenu */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
-    justify-content: center;
-    align-items: center;
-}
-
-
-.modal-content {
-    background-color: #2f0028;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a0017;
     color: #f5f5f5;
-    padding: 20px;
-    border-radius: 8px;
-    width: 300px;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.modal button {
-    background-color: red;
+h2 {
+    color: #ff4d4d;
+}
+
+p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ff4d4d;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #3a0038;
     color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-    font-size: 1.2em;
+    box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.5);
+    resize: none;
 }
 
-.modal button:hover {
-    background-color: #cc0000;
-}
-
-/* Formulaire */
 form {
-    width: 50%;
+    width: 80%;
+    max-width: 800px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #1a0017;
+    background-color: #2a0025;
     border-radius: 12px;
     border: 2px solid red;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: none; /* Caché par défaut */
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    width: 48%;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 label {
-    display: block;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #f5f5f5;
-    margin-bottom: 10px;
+    display: block;
 }
 
 input[type="text"], 
@@ -61,17 +60,27 @@ input[type="number"],
 input[type="email"], 
 select {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0 20px 0;
-    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ff4d4d;
     border-radius: 8px;
     font-size: 1em;
-    background-color: #2a0030;
+    background-color: #3a0038;
     color: white;
+    box-shadow: inset 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+
+.radio-group input {
+    margin-right: 5px;
 }
 
 input[type="submit"] {
-    background-color: red;
+    background-color: #ff4d4d;
     color: white;
     padding: 12px 25px;
     border: none;
@@ -79,8 +88,49 @@ input[type="submit"] {
     cursor: pointer;
     font-size: 1.2em;
     transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
 }
 
 input[type="submit"]:hover {
+    background-color: #cc0000;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #2f0028;
+    color: #f5f5f5;
+    padding: 25px;
+    border-radius: 10px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+}
+
+.modal button {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+
+.modal button:hover {
     background-color: #cc0000;
 }

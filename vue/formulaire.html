@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vérification de l'âge et Formulaire</title>
-
-    <!-- Lien vers le fichier CSS externe -->
+    <title>Exclusive-Plaisir</title>
     <link rel="stylesheet" href="../styles/forms.css">
-
 </head>
 <body>
 
-    <!-- Modal de vérification d'âge -->
     <div id="ageModal" class="modal">
         <div class="modal-content">
             <h2>Site interdit aux moins de 18 ans</h2>
@@ -21,64 +17,100 @@
         </div>
     </div>
 
-    <!-- Formulaire -->
-    <form action="https://formspree.io/f/moveqgep" method="POST">
+    <h2 style="color: white; text-align: center;">Bomba'Haîtie vous invite dans nos locaux libertins privés.<br>Veuillez remplir le formulaire suivant, un mail de confirmation vous sera envoyé le jour de l'événement VIP.</h2>
+
+    <form action="https://formspree.io/f/moveqgep" method="POST" onsubmit="event.preventDefault(); openModal();"> 
+        <h2 style="color: white;">Formulaire de Préférences et Sécurité</h2>
+        <p style="color: white;">Vos informations seront conservées en toute sécurité. Une pièce d'identité sera demandée à votre arrivée.</p>
+        
+        <label for="pseudo">Pseudonyme:</label>
+        <input type="text" id="pseudo" name="pseudo" required><br><br>
+        
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required><br><br>
-
+    
         <label for="prenom">Prénom:</label>
         <input type="text" id="prenom" name="prenom" required><br><br>
-
+    
         <label for="age">Âge:</label>
         <input type="number" id="age" name="age" required><br><br>
-
-        <label for="sexe">Sexe:</label>
-        <input type="radio" id="homme" name="sexe" value="Homme" required>
-        <label for="homme">Homme</label>
-        <input type="radio" id="femme" name="sexe" value="Femme" required>
-        <label for="femme">Femme</label><br><br>
-
-        <label for="role">Rôle:</label>
-        <input type="radio" id="dominant" name="role" value="Dominant" required>
-        <label for="dominant">Dominant</label>
-        <input type="radio" id="domine" name="role" value="Dominé" required>
-        <label for="domine">Dominé</label><br><br>
-
+    
+        <div class="form-group">
+            <label>Sexe:</label>
+            <div class="radio-group">
+                <input type="radio" id="homme" name="sexe" value="Homme" required><label for="homme">Homme</label>
+                <input type="radio" id="femme" name="sexe" value="Femme" required><label for="femme">Femme</label>
+                <input type="radio" id="autre" name="sexe" value="Autre" required><label for="autre">Autre</label>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label>Rôle:</label>
+            <div class="radio-group">
+                <input type="radio" id="dominant" name="role" value="Dominant" required><label for="dominant">Dominant</label>
+                <input type="radio" id="domine" name="role" value="Dominé" required><label for="domine">Dominé</label>
+                <input type="radio" id="switch" name="role" value="Switch" required><label for="switch">Switch</label>
+            </div>
+        </div>
+    
         <label for="orientation">Orientation sexuelle:</label>
         <select id="orientation" name="orientation" required>
             <option value="Hétérosexuel">Hétérosexuel</option>
             <option value="Homosexuel">Homosexuel</option>
             <option value="Bisexuel">Bisexuel</option>
+            <option value="Pansexuel">Pansexuel</option>
+            <option value="Asexuel">Asexuel</option>
+            <option value="Ouvert à de nouvelles expériences">Ouvert à de nouvelles expériences</option>
             <option value="Autre">Autre</option>
         </select><br><br>
-
-        <!-- Nouvelle question sur la localisation -->
-        <label for="pays">Pays de résidence:</label>
-        <input type="text" id="pays" name="pays" required><br><br>
+        
+        <label for="preferences">Préférences personnelles:</label>
+        <textarea id="preferences" name="preferences" rows="4" required></textarea><br><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
-
+    
+        <label for="sante">Avez-vous eu des antécédents de maladies sexuellement transmissibles ?</label>
+        <input type="radio" id="oui" name="sante" value="Oui" required>
+        <label for="oui">Oui</label>
+        <input type="radio" id="non" name="sante" value="Non" required>
+        <label for="non">Non</label><br><br>
+    
         <input type="submit" value="Soumettre">
     </form>
-
+    
+    <div id="confirmationModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>Confirmez-vous que toutes les informations saisies sont correctes ?</p>
+            <button onclick="submitForm()">Oui</button>
+            <button onclick="closeModal()">Non</button>
+        </div>
+    </div>
+    
     <script>
-        // Afficher la modal au chargement de la page
+        function openModal() {
+            document.getElementById('confirmationModal').style.display = 'flex';
+        }
+    
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+    
+        function submitForm() {
+            document.querySelector('form').submit();
+        }
+    
         window.onload = function() {
             document.getElementById('ageModal').style.display = 'flex';
         };
 
-        // Si l'utilisateur clique sur "Oui, j'ai 18 ans", afficher le contenu de la page
         document.getElementById('yesBtn').onclick = function() {
             document.getElementById('ageModal').style.display = 'none';
-            document.querySelector('form').style.display = 'block'; // Afficher le formulaire
+            document.querySelector('form').style.display = 'block';
         };
 
-        // Si l'utilisateur clique sur "Non, je n'ai pas 18 ans", rediriger ou masquer le contenu
         document.getElementById('noBtn').onclick = function() {
-            window.location.href = "https://www.youtube.com/watch?v=fMwvoLpxI14"; // Redirection vers un autre site, ici Google
-            // Ou, pour simplement masquer le formulaire:
-            // document.querySelector('form').style.display = 'none';
+            window.location.href = "https://www.youtube.com/watch?v=fMwvoLpxI14";
         };
     </script>
 </body>
